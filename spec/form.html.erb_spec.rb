@@ -13,6 +13,10 @@ describe "NewCarForm", :type=>:feature do
     	page.should have_content("Name")
     end
 
+    it "should give error" do
+      visit "/cars/new"
+      click_button "Create Car"
+    end
     
 
   end
