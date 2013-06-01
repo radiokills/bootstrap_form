@@ -1,0 +1,11 @@
+$red: rgb(180, 22, 22);
+.field_with_errors{
+  .tooltip-inner{
+    background-color: $red;
+    font-weight: bold
+  }
+  .right
+    .tooltip-arrow{
+      border-right-color: $red;
+    }
+}

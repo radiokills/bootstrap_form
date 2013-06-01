@@ -24,7 +24,7 @@ describe CarsController do
   # Car. As you add validations to Car, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    { "name" => "MyString" }
+    { "name" => "MyString", :engine_type =>"EngineType" }
   end
 
   # This should return the minimal set of values that should be in the session

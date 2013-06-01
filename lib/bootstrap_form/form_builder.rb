@@ -1,7 +1,7 @@
 module BootstrapForm
 	class FormBuilder < ActionView::Helpers::FormBuilder  
 	  
-	  %w[text_field password_field number_field email_field].each do |method_name|
+	  %w[text_field password_field number_field email_field text_area datetime_select url_field].each do |method_name|
 	    define_method(method_name) do |name, *args|
 	    	options = args.extract_options!
 	    	if(object.errors.messages.any? && object.errors.messages[name] && object.errors.messages[name].length > 0)

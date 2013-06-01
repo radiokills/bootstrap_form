@@ -4,11 +4,15 @@ require File.expand_path("../dummy/config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
 require 'capybara/rspec'
+require 'capybara/webkit'
+require 'capybara-screenshot'
+require 'capybara-screenshot/rspec'
+require 'bootstrap-sass-rails'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
-
+Capybara.javascript_driver = :webkit
 RSpec.configure do |config|
   # ## Mock Framework
   #
