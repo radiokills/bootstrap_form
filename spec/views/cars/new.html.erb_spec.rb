@@ -5,8 +5,10 @@ describe "cars/new" do
     assign(:car, stub_model(Car,
       :name => "MyString",
       :brand => "MyString",
-      :year => 1,
-      :engine_type => "MyText"
+      :engine_type => nil,
+      :is_working => false,
+      :description => "MyText",
+      :kilometers => 1.5
     ).as_new_record)
   end
 
@@ -17,13 +19,10 @@ describe "cars/new" do
     assert_select "form[action=?][method=?]", cars_path, "post" do
       assert_select "input#car_name[name=?]", "car[name]"
       assert_select "input#car_brand[name=?]", "car[brand]"
-      assert_select "input#car_year[name=?]", "car[year]"
-      assert_select "textarea#car_engine_type[name=?]", "car[engine_type]"
+      assert_select "input#car_engine_type[name=?]", "car[engine_type]"
+      assert_select "input#car_is_working[name=?]", "car[is_working]"
+      assert_select "textarea#car_description[name=?]", "car[description]"
+      assert_select "input#car_kilometers[name=?]", "car[kilometers]"
     end
   end
-
-  it "Is has form class" do
-      render
-      assert_select("form[class=?]", "form-horizontal")
-    end
 end

@@ -4,9 +4,11 @@
   <tr>
     <th>Name</th>
     <th>Brand</th>
-    <th>Year</th>
-    <th>Last service</th>
     <th>Engine type</th>
+    <th>Is working</th>
+    <th>Description</th>
+    <th>Kilometers</th>
+    <th>Last registration</th>
     <th></th>
     <th></th>
     <th></th>
@@ -16,9 +18,11 @@
   <tr>
     <td><%= car.name %></td>
     <td><%= car.brand %></td>
-    <td><%= car.year %></td>
-    <td><%= car.last_service %></td>
     <td><%= car.engine_type %></td>
+    <td><%= car.is_working %></td>
+    <td><%= car.description %></td>
+    <td><%= car.kilometers %></td>
+    <td><%= car.last_registration %></td>
     <td><%= link_to 'Show', car %></td>
     <td><%= link_to 'Edit', edit_car_path(car) %></td>
     <td><%= link_to 'Destroy', car, method: :delete, data: { confirm: 'Are you sure?' } %></td>

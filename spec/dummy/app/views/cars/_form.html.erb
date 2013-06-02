@@ -1,15 +1,14 @@
 <%= bootstrap_form_for(@car) do |f| %>
 
-
+    <%= f.error_alert %>
     <%= f.text_field :name %>
-
     <%= f.text_field :brand %>
-
-    <%= f.url_field :year %>
-
-    <%= f.datetime_select :last_service %>
-
-    <%= f.url_field :engine_type %>
+    <%= f.select :engine_type_id, EngineType.all.map{|t| [t.name, t.name]} %>
+    <%= f.check_box :is_working %>
+    <%= f.text_area :description %>
+    <%= f.text_field :kilometers %>
+    <%= f.datetime_select :last_registration %>
+  <div class="actions">
     <%= f.submit %>
-
+  </div>
 <% end %>

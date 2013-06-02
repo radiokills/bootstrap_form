@@ -11,6 +11,9 @@ module BootstrapForm
     initializer 'bootstrap-form.initialize' do |app|
       ActiveSupport.on_load(:action_view) do
       	ActionView::Base.send(:include, BootstrapForm::Helper)
+      	ActionView::Base.field_error_proc =   Proc.new do |html_tag, instance| 
+  				"#{html_tag}".html_safe 
+				end
       end
     end
   end

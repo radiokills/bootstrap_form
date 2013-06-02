@@ -5,8 +5,10 @@ describe "cars/show" do
     @car = assign(:car, stub_model(Car,
       :name => "Name",
       :brand => "Brand",
-      :year => 1,
-      :engine_type => "MyText"
+      :engine_type => nil,
+      :is_working => false,
+      :description => "MyText",
+      :kilometers => 1.5
     ))
   end
 
@@ -15,7 +17,9 @@ describe "cars/show" do
     # Run the generator again with the --webrat flag if you want to use webrat matchers
     rendered.should match(/Name/)
     rendered.should match(/Brand/)
-    rendered.should match(/1/)
+    rendered.should match(//)
+    rendered.should match(/false/)
     rendered.should match(/MyText/)
+    rendered.should match(/1.5/)
   end
 end

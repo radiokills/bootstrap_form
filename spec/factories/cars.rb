@@ -4,8 +4,10 @@ FactoryGirl.define do
   factory :car do
     name "MyString"
     brand "MyString"
-    year 1
-    last_service "2013-05-31 19:59:08"
-    engine_type "MyText"
+    engine_type nil
+    is_working false
+    description "MyText"
+    kilometers 1.5
+    last_registration "2013-06-02 13:29:25"
   end
 end

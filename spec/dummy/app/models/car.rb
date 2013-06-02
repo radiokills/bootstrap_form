@@ -1,4 +1,5 @@
 class Car < ActiveRecord::Base
-  attr_accessible :brand, :engine_type, :last_service, :name, :year
-  validates_presence_of :name, :engine_type
+  belongs_to :engine_type
+  attr_accessible :brand, :description, :is_working, :kilometers, :last_registration, :name, :engine_type_id
+  validates_presence_of :brand, :description, :is_working, :kilometers, :last_registration, :name, :engine_type_id
 end

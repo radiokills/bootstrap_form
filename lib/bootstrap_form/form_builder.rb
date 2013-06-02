@@ -1,15 +1,16 @@
 module BootstrapForm
 	class FormBuilder < ActionView::Helpers::FormBuilder  
 	  
-	  %w[text_field password_field number_field email_field text_area datetime_select url_field].each do |method_name|
+	  %w[text_field select password_field number_field email_field text_area datetime_select url_field].each do |method_name|
 	    define_method(method_name) do |name, *args|
 	    	options = args.extract_options!
 	    	if(object.errors.messages.any? && object.errors.messages[name] && object.errors.messages[name].length > 0)
 	    		options.merge!({:title=>object.errors.messages[name][0]})
 	    		options.merge!({:data=>{:toggle=>'tooltip'}})
 	    	end
+	    	args.push options
 	      @template.content_tag :div, class: "control-group" do
-	        field_label(name, *args) + @template.content_tag(:div, class: 'controls') {super(name, options)}
+	        field_label(name, *args) + @template.content_tag(:div, class: 'controls') {super(name, *args)}
 	      end
 	
 	    end
@@ -19,8 +20,10 @@ module BootstrapForm
 	  
 	  def check_box(name, *args)
 	    options = args.extract_options!
-	    @template.content_tag :div, class: "field" do
-	      super + " " +  field_label(name, *args)
+	    @template.content_tag :div, class: "control-group" do
+	      @template.content_tag :div, :class=>:controls do
+	      	super + " "+ field_label(name, *args)
+	      end
 	    end    
 	  end
 
