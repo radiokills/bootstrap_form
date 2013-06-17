@@ -41,6 +41,7 @@ module BootstrapForm
 	    options = args.extract_options!
 	    options[:label] = options[:label] ? options[:label] : {}
 	    (options[:label]).merge!(:class=>'control-label')
+	    name = options[:label][:text] ? options[:label][:text] : name
 	    label(name, options[:label])
 	  end
 	end
