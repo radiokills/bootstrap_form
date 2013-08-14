@@ -22,7 +22,7 @@ module BootstrapForm
 	    options = args.extract_options!
 	    @template.content_tag :div, class: "control-group" do
 	      @template.content_tag :div, :class=>:controls do
-	      	super + " "+ field_label(name, *args)
+	      	field_label(name, *args) + " " + super
 	      end
 	    end    
 	  end
