@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.version     = BootstrapForm::VERSION
   s.authors     = ["Miha Mencin"]
   s.email       = ["miha.mencin@gmail.com"]
-  s.homepage    = "none"
+  s.homepage    = "http://radiokills.net"
   s.summary     = "Summary"
   s.description = "Description of BootstrapForm."
 
